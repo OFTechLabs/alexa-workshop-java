@@ -1,0 +1,61 @@
+{
+  "intents": [
+    {
+      "intent": "FinancialPlanningIntent"
+    },
+    {
+      "intent": "SetGoalAmountIntent",
+      "slots": [
+        {
+          "name": "GoalAmount",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "SetInitialSavingsIntent",
+      "slots": [
+        {
+          "name": "InitialSavings",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "SetMonthlyContributionIntent",
+      "slots": [
+        {
+          "name": "MonthlyContribution",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "SetGoalPeriodIntent",
+      "slots": [
+        {
+          "name": "GoalPeriod",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "SetDynamicNumberIntent",
+      "slots": [
+        {
+          "name": "Dynamic",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+FinancialPlanningIntent help me achieve my financial goals
+FinancialPlanningIntent help achieve goals
+FinancialPlanningIntent financial goals
+SetGoalAmountIntent my goal is {GoalAmount}
+SetGoalAmountIntent my goal amount is {GoalAmount}
+SetGoalAmountIntent the amount is {GoalAmount}
+SetInitialSavingsIntent my initial savings are {InitialSavings}
+SetInitialSavingsIntent savings are {InitialSavings}
+SetInitialSavingsIntent my current savings are {InitialSavings}
+SetMonthlyContributionIntent my monthly contribution is {MonthlyContribution}
+SetMonthlyContributionIntent my monthly contribution will be {MonthlyContribution}
+SetMonthlyContributionIntent my contribution is {MonthlyContribution}
+SetGoalPeriodIntent the goal has to be achieved in {GoalPeriod} months
+SetGoalPeriodIntent in {GoalPeriod} months
+SetGoalPeriodIntent {GoalPeriod} months
+SetGoalPeriodIntent there are {GoalPeriod} months left
+SetDynamicNumberIntent {Dynamic}
