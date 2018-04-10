@@ -1,6 +1,6 @@
 # Financial Planning assignment
 
-##1. A basic financial planner has been implemented and is running on your Echo. It performs the following actions:
+## 1. A basic financial planner has been implemented and is running on your Echo. It performs the following actions:
 - Introduction to the app when you say "Alexa start financial planning"
 - Alexa then asks you for your target amount
 - Answer an amount
@@ -44,7 +44,7 @@ mvn assembly:assembly -DdescriptorId=jar-with-dependencies package
 Now it is time to upload your code and see if it works!
 Contact a member of the team to deploy the solution.   
 
-##2. You now have an Alexa app working as basic financial planner;
+## 2. You now have an Alexa app working as basic financial planner;
 * You can have a conversation in which she asks for input:
     * Target amount
     * Current amount
@@ -56,11 +56,11 @@ Add a sensible calculation that provides a percentage as feasibility. This
 should incorporate the principle that a longer time period should yield a 
 higher return and increase the feasibility to reach the desired goal.
 
-##3a. You now can add a dynamic answer by the user;
+## 3a. You now can add a dynamic answer by the user;
 Enable Alexa to understand it if you only provide a number for each question instead of full utterances.
 See the ignored test in FinancialPlanningSpeechletTest for usage.
 
-##3b. Instead of stopping after the calculation, add the option to fix a low feasibility. Use three possible options to make the goal feasible:
+## 3b. Instead of stopping after the calculation, add the option to fix a low feasibility. Use three possible options to make the goal feasible:
 * Lower the goal 
 * Increase the monthly deposit
 * Increase the time to target (a longer period should yield a higher feasibility) 
