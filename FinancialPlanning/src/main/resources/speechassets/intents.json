@@ -1,61 +1,100 @@
 {
-  "intents": [
-    {
-      "intent": "FinancialPlanningIntent"
-    },
-    {
-      "intent": "SetGoalAmountIntent",
-      "slots": [
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "financial planning",
+      "intents": [
         {
-          "name": "GoalAmount",
-          "type": "AMAZON.NUMBER"
-        }
-      ]
-    },
-    {
-      "intent": "SetInitialSavingsIntent",
-      "slots": [
+          "name": "FinancialPlanning",
+          "slots": [],
+          "samples": [
+            "help me achieve my financial goals",
+            "help achieve goals",
+            "financial goals"
+          ]
+        },
         {
-          "name": "InitialSavings",
-          "type": "AMAZON.NUMBER"
-        }
-      ]
-    },
-    {
-      "intent": "SetMonthlyContributionIntent",
-      "slots": [
+          "name": "SetGoalAmount",
+          "slots": [
+            {
+              "name": "GoalAmount",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "my goal is {GoalAmount}",
+            "my goal amount is {GoalAmount}",
+            "the amount is {GoalAmount}"
+          ]
+        },
         {
-          "name": "MonthlyContribution",
-          "type": "AMAZON.NUMBER"
-        }
-      ]
-    },
-    {
-      "intent": "SetGoalPeriodIntent",
-      "slots": [
+          "name": "SetInitialSavings",
+          "slots": [
+            {
+              "name": "InitialSavings",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "my initial savings are {InitialSavings}",
+            "savings are {InitialSavings}",
+            "my current savings are {InitialSavings}"
+          ]
+        },
         {
-          "name": "GoalPeriod",
-          "type": "AMAZON.NUMBER"
-        }
-      ]
-    },
-    {
-      "intent": "SetDynamicNumberIntent",
-      "slots": [
+          "name": "SetMonthlyContribution",
+          "slots": [
+            {
+              "name": "MonthlyContribution",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "my monthly contribution is {MonthlyContribution}",
+            "my monthly contribution will be {MonthlyContribution}",
+            "my contribution is {MonthlyContribution}"
+          ]
+        },
         {
-          "name": "Dynamic",
-          "type": "AMAZON.NUMBER"
+          "name": "SetGoalPeriod",
+          "slots": [
+            {
+              "name": "GoalPeriod",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "the goal has to be achieved in {GoalPeriod} months",
+            "in {GoalPeriod} months",
+            "{GoalPeriod} months",
+            "there are {GoalPeriod} months left"
+          ]
+        },
+        {
+          "name": "SetDynamicNumber",
+          "slots": [
+            {
+              "name": "Dynamic",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "{Dynamic}"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
         }
-      ]
-    },
-    {
-      "intent": "AMAZON.HelpIntent"
-    },
-    {
-      "intent": "AMAZON.StopIntent"
-    },
-    {
-      "intent": "AMAZON.CancelIntent"
+      ],
+      "types": []
     }
-  ]
+  }
 }
