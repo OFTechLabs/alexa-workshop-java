@@ -9,12 +9,14 @@ public class FinancialPlanningSpeechlet implements Speechlet {
     public static String GOAL_PERIOD_KEY = "GoalPeriod";
     public static String DYNAMIC_NUMBER_KEY = "Dynamic";
 
-    public static String WELCOME_MESSAGE =
+    public static String
+            WELCOME_MESSAGE =
             "Welcome to financial planning. I can help you determine whether your current financial goals are " +
-                    "feasible. What is the amount you need to achieve your financial goal?";
-    public static String HELP_MESSAGE =
+            "feasible. What is the amount you need to achieve your financial goal?";
+    public static String
+            HELP_MESSAGE =
             "I can help you achieve your financial goals, to start, tell me how much is necessary to achieve your " +
-                    "goal?";
+            "goal?";
     public static String STOP_MESSAGE = "Bye!";
 
     public static String GOAL_AMOUNT_QUESTION = "What is the amount you need to achieve your financial goal?";
@@ -34,8 +36,8 @@ public class FinancialPlanningSpeechlet implements Speechlet {
     @Override
     public SpeechletResponse onIntent(IntentRequest intentRequest, Session session) {
         String text = ResponseTextFactory.create(intentRequest.getIntent().getName(),
-                session,
-                intentRequest.getIntent().getSlots()
+                                                 session,
+                                                 intentRequest.getIntent().getSlots()
         );
         boolean endSession = EndSessionFactory.shouldEndSession(intentRequest.getIntent().getName(), session);
 

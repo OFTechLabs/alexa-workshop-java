@@ -8,10 +8,22 @@ import java.util.Map;
 
 import static com.ortecfinance.financialplanning.FinancialPlanningIntents.*;
 
+/**
+ * Handles all the different available intents by mapping them to the correct response and storing any user answers
+ * in the session during the conversation.
+ */
 public class ResponseTextFactory implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * @param intentName the intent the user wants to have handled here
+     * @param session    we have to store any user answers in the session
+     * @param variables  these are the variables in the answer given by the user, for instance: my amount is
+     *                   {AmountSpokenByTheUser} will be available in variables under the
+     *                   FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY key
+     * @return the text Alexa has to say out loud in response to the intent
+     */
     public static String create(String intentName, Session session, Map<String, Slot> variables) {
         switch (intentName) {
             case AmazonIntents.CANCEL_INTENT:
@@ -37,6 +49,7 @@ public class ResponseTextFactory implements Serializable {
             case FINANCIAL_PLANNING_INTENT:
                 return NextQuestionFactory.get(session);
             default:
+                /* Hint: any extra intents will have to be handled else this exception below will be thrown */
                 throw new IllegalStateException("Unknown intent");
         }
     }

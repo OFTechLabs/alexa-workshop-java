@@ -23,16 +23,24 @@ public class DynamicNumberKeyFactory implements Serializable {
      * was asked.
      */
     public static String create(Session session) {
-        if (!session.getAttributes().containsKey(FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY)) {
+        if (!sessionContainsKey(session, FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY)) {
             return FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY;
         }
-        if (!session.getAttributes().containsKey(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY)) {
+        if (!sessionContainsKey(session, FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY)) {
             return FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY;
         }
-        if (!session.getAttributes().containsKey(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY)) {
+        if (!sessionContainsKey(session, FinancialPlanningSpeechlet.GOAL_PERIOD_KEY)) {
             return FinancialPlanningSpeechlet.GOAL_PERIOD_KEY;
         }
 
         return "";
+    }
+
+    /**
+     * If it contains a certain key it means the question has already been answered, if not we still need to store
+     * the answer to that queston
+     */
+    private static boolean sessionContainsKey(Session session, String goalAmountKey) {
+        return session.getAttributes().containsKey(goalAmountKey);
     }
 }

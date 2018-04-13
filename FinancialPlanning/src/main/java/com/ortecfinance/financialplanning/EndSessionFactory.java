@@ -30,9 +30,7 @@ public class EndSessionFactory implements Serializable {
             case SET_MONTHLY_CONTRIBUTION_INTENT:
             case SET_GOAL_PERIOD_INTENT:
             case SET_DYNAMIC_NUMBER_INTENT:
-                return session.getAttributes().containsKey(FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY) &&
-                        session.getAttributes().containsKey(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY) &&
-                        session.getAttributes().containsKey(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY);
+                return allAnswersAreStoredInSession(session);
             case AmazonIntents.HELP_INTENT:
                 return false;
             case AmazonIntents.CANCEL_INTENT:
@@ -41,5 +39,11 @@ public class EndSessionFactory implements Serializable {
             default:
                 throw new IllegalStateException("Unknown intent");
         }
+    }
+
+    private static boolean allAnswersAreStoredInSession(Session session) {
+        return session.getAttributes().containsKey(FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY) &&
+               session.getAttributes().containsKey(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY) &&
+               session.getAttributes().containsKey(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY);
     }
 }
