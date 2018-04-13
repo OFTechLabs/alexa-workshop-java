@@ -31,8 +31,10 @@ public class ResponseTextFactory implements Serializable {
                 Slot goalPeriod = variables.get(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY);
                 session.setAttribute(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY, Double.valueOf(goalPeriod.getValue()));
                 return NextQuestionFactory.get(session);
-            default:
+            case FINANCIAL_PLANNING_INTENT:
                 return NextQuestionFactory.get(session);
+            default:
+                throw new IllegalStateException("Unknown intent");
         }
     }
 }

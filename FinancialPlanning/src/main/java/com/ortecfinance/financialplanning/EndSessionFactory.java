@@ -36,8 +36,11 @@ public class EndSessionFactory implements Serializable {
                                 && session.getAttributes().containsKey(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY);
             case AmazonIntents.HELP_INTENT:
                 return false;
-            default:
+            case AmazonIntents.CANCEL_INTENT:
+            case AmazonIntents.STOP_INTENT:
                 return true;
+            default:
+                throw new IllegalStateException("Unknown intent");
         }
     }
 }

@@ -4,7 +4,7 @@
       "invocationName": "financial planning",
       "intents": [
         {
-          "name": "FinancialPlanning",
+          "name": "FinancialPlanningIntent",
           "slots": [],
           "samples": [
             "help me achieve my financial goals",
@@ -13,7 +13,7 @@
           ]
         },
         {
-          "name": "SetGoalAmount",
+          "name": "SetGoalAmountIntent",
           "slots": [
             {
               "name": "GoalAmount",
@@ -27,7 +27,7 @@
           ]
         },
         {
-          "name": "SetInitialSavings",
+          "name": "SetInitialSavingsIntent",
           "slots": [
             {
               "name": "InitialSavings",
@@ -41,7 +41,7 @@
           ]
         },
         {
-          "name": "SetMonthlyContribution",
+          "name": "SetMonthlyContributionIntent",
           "slots": [
             {
               "name": "MonthlyContribution",
@@ -55,7 +55,7 @@
           ]
         },
         {
-          "name": "SetGoalPeriod",
+          "name": "SetGoalPeriodIntent",
           "slots": [
             {
               "name": "GoalPeriod",
@@ -70,7 +70,7 @@
           ]
         },
         {
-          "name": "SetDynamicNumber",
+          "name": "SetDynamicNumberIntent",
           "slots": [
             {
               "name": "Dynamic",
