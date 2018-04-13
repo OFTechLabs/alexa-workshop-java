@@ -31,24 +31,24 @@ public class FinancialPlanningSpeechletTest {
 
         slots.put(GOAL_AMOUNT_KEY, Slot.builder().withName(GOAL_AMOUNT_KEY).withValue("1000.0").build());
         slots.put(GOAL_PERIOD_KEY, Slot.builder().withName(GOAL_PERIOD_KEY).withValue("24.0").build());
-        slots.put(MONTHLY_CONTRIBUTION_KEY, Slot.builder().withName(MONTHLY_CONTRIBUTION_KEY).withValue("100.0").build());
+        slots.put(MONTHLY_CONTRIBUTION_KEY,
+                Slot.builder().withName(MONTHLY_CONTRIBUTION_KEY).withValue("100.0").build()
+        );
 
-        session = Session.builder()
-                .withSessionId("s444")
-                .build();
+        session = Session.builder().withSessionId("s444").build();
         financialPlanningSpeechlet = new FinancialPlanningSpeechlet();
     }
 
     @Test
     public void shouldBeAbleToLaunchSkill() {
-        LaunchRequest launchRequest = LaunchRequest.builder()
-                .withRequestId("r1")
-                .build();
+        LaunchRequest launchRequest = LaunchRequest.builder().withRequestId("r1").build();
 
         SpeechletResponse response = financialPlanningSpeechlet.onLaunch(launchRequest, session);
 
         assertThat(response.getShouldEndSession(), Is.is(false));
-        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(), Is.is(FinancialPlanningSpeechlet.WELCOME_MESSAGE));
+        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(),
+                Is.is(FinancialPlanningSpeechlet.WELCOME_MESSAGE)
+        );
     }
 
     @Test
@@ -57,28 +57,36 @@ public class FinancialPlanningSpeechletTest {
         SpeechletResponse response = financialPlanningSpeechlet.onIntent(request, session);
 
         assertThat(response.getShouldEndSession(), Is.is(false));
-        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(), Is.is(FinancialPlanningSpeechlet.GOAL_AMOUNT_QUESTION));
+        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(),
+                Is.is(FinancialPlanningSpeechlet.GOAL_AMOUNT_QUESTION)
+        );
 
         request = getRequest(FinancialPlanningIntents.SET_GOAL_AMOUNT_INTENT, slots);
         response = financialPlanningSpeechlet.onIntent(request, session);
 
         assertThat(response.getShouldEndSession(), Is.is(false));
         assertThat((double) session.getAttribute(GOAL_AMOUNT_KEY), Is.is(1000.0));
-        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(), Is.is(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_QUESTION));
+        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(),
+                Is.is(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_QUESTION)
+        );
 
         request = getRequest(FinancialPlanningIntents.SET_MONTHLY_CONTRIBUTION_INTENT, slots);
         response = financialPlanningSpeechlet.onIntent(request, session);
 
         assertThat(response.getShouldEndSession(), Is.is(false));
         assertThat((double) session.getAttribute(MONTHLY_CONTRIBUTION_KEY), Is.is(100.0));
-        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(), Is.is(FinancialPlanningSpeechlet.GOAL_PERIOD_QUESTION));
+        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(),
+                Is.is(FinancialPlanningSpeechlet.GOAL_PERIOD_QUESTION)
+        );
 
         request = getRequest(FinancialPlanningIntents.SET_GOAL_PERIOD_INTENT, slots);
         response = financialPlanningSpeechlet.onIntent(request, session);
 
         assertThat(response.getShouldEndSession(), Is.is(true));
         assertThat((double) session.getAttribute(GOAL_PERIOD_KEY), Is.is(24.0));
-        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(), Is.is("The feasibility of your goal is High"));
+        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(),
+                Is.is("The feasibility of your goal is High")
+        );
     }
 
     @Ignore
@@ -88,7 +96,9 @@ public class FinancialPlanningSpeechletTest {
         SpeechletResponse response = financialPlanningSpeechlet.onIntent(request, session);
 
         assertThat(response.getShouldEndSession(), Is.is(false));
-        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(), Is.is(FinancialPlanningSpeechlet.GOAL_AMOUNT_QUESTION));
+        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(),
+                Is.is(FinancialPlanningSpeechlet.GOAL_AMOUNT_QUESTION)
+        );
 
         slots.put(DYNAMIC_NUMBER_KEY, Slot.builder().withName(DYNAMIC_NUMBER_KEY).withValue("1000.0").build());
         request = getRequest(FinancialPlanningIntents.SET_DYNAMIC_NUMBER_INTENT, slots);
@@ -96,7 +106,9 @@ public class FinancialPlanningSpeechletTest {
 
         assertThat(response.getShouldEndSession(), Is.is(false));
         assertThat((double) session.getAttribute(GOAL_AMOUNT_KEY), Is.is(1000.0));
-        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(), Is.is(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_QUESTION));
+        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(),
+                Is.is(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_QUESTION)
+        );
 
         slots.put(DYNAMIC_NUMBER_KEY, Slot.builder().withName(DYNAMIC_NUMBER_KEY).withValue("100.0").build());
         request = getRequest(FinancialPlanningIntents.SET_DYNAMIC_NUMBER_INTENT, slots);
@@ -104,7 +116,9 @@ public class FinancialPlanningSpeechletTest {
 
         assertThat(response.getShouldEndSession(), Is.is(false));
         assertThat((double) session.getAttribute(MONTHLY_CONTRIBUTION_KEY), Is.is(100.0));
-        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(), Is.is(FinancialPlanningSpeechlet.GOAL_PERIOD_QUESTION));
+        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(),
+                Is.is(FinancialPlanningSpeechlet.GOAL_PERIOD_QUESTION)
+        );
 
         slots.put(DYNAMIC_NUMBER_KEY, Slot.builder().withName(DYNAMIC_NUMBER_KEY).withValue("24.0").build());
         request = getRequest(FinancialPlanningIntents.SET_DYNAMIC_NUMBER_INTENT, slots);
@@ -112,7 +126,9 @@ public class FinancialPlanningSpeechletTest {
 
         assertThat(response.getShouldEndSession(), Is.is(true));
         assertThat((double) session.getAttribute(GOAL_PERIOD_KEY), Is.is(24.0));
-        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(), Is.is("The feasibility of your goal is High"));
+        assertThat(((PlainTextOutputSpeech) response.getOutputSpeech()).getText(),
+                Is.is("The feasibility of your goal is High")
+        );
     }
 
     public IntentRequest getRequest(String intentName, Map<String, Slot> slots) {

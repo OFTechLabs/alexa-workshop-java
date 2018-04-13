@@ -6,7 +6,8 @@ import java.io.Serializable;
 
 /**
  * This class should determine what answer the user has given, and give the correct variable key for it. If the question
- * was FinancialPlanningSpeechlet.GOAL_AMOUNT_QUESTION it should return the FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY because we need to
+ * was FinancialPlanningSpeechlet.GOAL_AMOUNT_QUESTION it should return the FinancialPlanningSpeechlet
+ * .GOAL_AMOUNT_KEY because we need to
  * store the answer of the user in GOAL_AMOUNT_KEY slot in the session.
  */
 public class DynamicNumberKeyFactory implements Serializable {
@@ -15,8 +16,10 @@ public class DynamicNumberKeyFactory implements Serializable {
 
     /***
      * Return the key in which to store the answer by the user in the session.
-     * @param session the session includes what questions have already been answered, and what questions have not been answered.
-     * @return the key for the question which the user has answered, we need to deduce what the question was here by assuming what question
+     * @param session the session includes what questions have already been answered, and what questions have not
+     *                been answered.
+     * @return the key for the question which the user has answered, we need to deduce what the question was here by
+     * assuming what question
      * was asked.
      */
     public static String create(Session session) {

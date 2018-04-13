@@ -29,12 +29,14 @@ public class NextQuestionFactory implements Serializable {
 
     /**
      * Ensure we get a double for both integer value as well as double value
+     *
      * @param value Object containing either int or double
      * @return a valid double
      */
     private static double getNumericValue(Object value) {
-        if (value instanceof Integer)
-            return ((Integer)value).doubleValue();
+        if (value instanceof Integer) {
+            return ((Integer) value).doubleValue();
+        }
         return (double) value;
     }
 }

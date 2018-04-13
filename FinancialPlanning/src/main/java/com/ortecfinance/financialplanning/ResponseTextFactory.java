@@ -25,7 +25,10 @@ public class ResponseTextFactory implements Serializable {
                 return NextQuestionFactory.get(session);
             case SET_MONTHLY_CONTRIBUTION_INTENT:
                 Slot monthlyContribution = variables.get(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY);
-                session.setAttribute(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY, Double.valueOf(monthlyContribution.getValue()));
+                session.setAttribute(
+                        FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY,
+                        Double.valueOf(monthlyContribution.getValue())
+                );
                 return NextQuestionFactory.get(session);
             case SET_GOAL_PERIOD_INTENT:
                 Slot goalPeriod = variables.get(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY);

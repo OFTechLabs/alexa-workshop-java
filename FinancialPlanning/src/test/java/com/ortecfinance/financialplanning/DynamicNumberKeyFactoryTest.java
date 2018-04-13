@@ -13,15 +13,12 @@ import static org.junit.Assert.assertThat;
 public class DynamicNumberKeyFactoryTest {
 
     private Session session;
-    private Map<String, Object> attributes ;
+    private Map<String, Object> attributes;
 
     @Before
     public void setUp() {
         attributes = new HashMap<>();
-        session = Session.builder()
-                .withAttributes(attributes)
-                .withSessionId("s2412")
-                .build();
+        session = Session.builder().withAttributes(attributes).withSessionId("s2412").build();
     }
 
     @Test

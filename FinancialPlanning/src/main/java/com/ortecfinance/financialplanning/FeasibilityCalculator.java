@@ -9,12 +9,15 @@ public class FeasibilityCalculator implements Serializable {
     private static double AVERAGE_ANNUAL_RETURN = 0.114122;
     private static double AVERAGE_MONTHLY_RETURN = AVERAGE_ANNUAL_RETURN / 12.0;
 
-    public static String calculate(double initialSavings, double monthlyContribution, double numberOfMonths, double target)
-    {
+    public static String calculate(
+            double initialSavings,
+            double monthlyContribution,
+            double numberOfMonths,
+            double target
+    ) {
         double gap = initialSavings + (monthlyContribution * numberOfMonths) - target;
 
-        if (gap >= 0)
-        {
+        if (gap >= 0) {
             return "High";
         }
 
@@ -22,8 +25,7 @@ public class FeasibilityCalculator implements Serializable {
         double requiredReturn = (-gap / averageAmount);
         double requiredMonthlyReturn = requiredReturn / numberOfMonths;
 
-        if (requiredMonthlyReturn <= AVERAGE_MONTHLY_RETURN)
-        {
+        if (requiredMonthlyReturn <= AVERAGE_MONTHLY_RETURN) {
             return "High";
         }
 

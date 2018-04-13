@@ -9,8 +9,7 @@ public class ResponseFactory implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public static SpeechletResponse Create(String text, boolean endSession)
-    {
+    public static SpeechletResponse Create(String text, boolean endSession) {
         PlainTextOutputSpeech plainTextResponse = new PlainTextOutputSpeech();
         plainTextResponse.setText(text);
 
