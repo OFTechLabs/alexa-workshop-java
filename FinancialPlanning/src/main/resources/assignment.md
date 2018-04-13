@@ -26,6 +26,8 @@ All the unit tests are in:
 FinancialPlanning/src/main/test/java/com/ortecfinance/financialplanning/3
 ```
 
+_Hint: certain tests are ignored, they can safely be ignored for the first assignment but for the extra assignments they may prove useful. You can run them by removing the `@Ignore` annotation._
+
 ### Request flow:
 
 1. The request will enter in the `FinancialPlanningSpeechlet` in the `onIntent(..)` method
@@ -35,11 +37,15 @@ FinancialPlanning/src/main/test/java/com/ortecfinance/financialplanning/3
 3. The `EndSessionFactory` determines whether the conversation has finished (in which case the session should be ended)
 4. The response is transformed to an object the Alexa API understands in the `ResponseFactory`
 
+_Hint: All classes mentioned after step 1 will have to be updated when adding a new intent._
+
 ### Administrative parts
 
 * The `AmazonIntents` includes all the intents defined by Amazon that we have to handle
 * The `FinancialPlanningIntents` includes all our own intents that we have to handle
 * The `intents.json` includes the model of the skill, including what the user has to say for Alexa to understand
+
+_Hint: You do not have to update the `intents.json` unless you add your own ideas to the skill, at the start feel free to leave the `intents.json` as is._
 
 ### Calculation / modeling part
 
@@ -138,6 +144,13 @@ Contact a member of the team to deploy the solution.
 
 Since you have a basic working solution now, here are several ideas on how to improve the current skill you have. You can do them in any order.
 
+### Extra: Better UX through dynamic numbers
+Enable Alexa to understand it if you only provide a number for each question instead of full utterances. See the ignored test in `FinancialPlanningSpeechletTest` for an example conversation your skill would have to handle. Once this is done users can simply answer in only numbers, instead of constantly uttering the full phrases.
+
+_Note: in this approach all numbers uttered by the user map to the `SET_DYNAMIC_NUMBER_INTENT`, you will have to figure out a way to decide what question the user answered, it could be any of the four questions._
+
+_Hint: take a look at the `DynamicNumberKeyFactory`, it includes a crucial part of the puzzle._
+
 ### Extra: Better feasibility calculation
 * You can have a conversation in which she asks for input:
     * Target amount
@@ -149,11 +162,6 @@ Since you have a basic working solution now, here are several ideas on how to im
 Add a sensible calculation that provides a percentage as feasibility. This should incorporate the principle that a longer time period should yield a higher return and increase the feasibility to reach the desired goal.
 
 _Note: Update the `FeasibilityCalculator` class with a better approach._
-
-### Extra: Better UX through dynamic numbers
-Enable Alexa to understand it if you only provide a number for each question instead of full utterances. See the ignored test in `FinancialPlanningSpeechletTest` for an example conversation your skill would have to handle. Once this is done users can simply answer in only numbers, instead of constantly uttering the full phrases.
-
-_Note: in this approach all numbers uttered by the user map to the `SET_DYNAMIC_NUMBER_INTENT`, you will have to figure out a way to decide what question the user answered, it could be any of the four questions._
 
 ### Extra: Advanced financial planning conversation
 
