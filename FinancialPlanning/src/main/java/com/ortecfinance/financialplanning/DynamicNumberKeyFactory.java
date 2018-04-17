@@ -4,6 +4,8 @@ import com.amazon.speech.speechlet.Session;
 
 import java.io.Serializable;
 
+import static com.ortecfinance.financialplanning.SessionManagementUtil.hasNotBeenStoredInSession;
+
 /**
  * This class should determine what answer the user has given, and give the correct variable key for it. If the question
  * was FinancialPlanningSpeechlet.GOAL_AMOUNT_QUESTION it should return the FinancialPlanningSpeechlet
@@ -23,24 +25,18 @@ public class DynamicNumberKeyFactory implements Serializable {
      * was asked.
      */
     public static String create(Session session) {
-        if (!sessionContainsKey(session, FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY)) {
+        if (hasNotBeenStoredInSession(session, FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY)) {
             return FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY;
         }
-        if (!sessionContainsKey(session, FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY)) {
+        if (hasNotBeenStoredInSession(session, FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY)) {
             return FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY;
         }
-        if (!sessionContainsKey(session, FinancialPlanningSpeechlet.GOAL_PERIOD_KEY)) {
+        if (hasNotBeenStoredInSession(session, FinancialPlanningSpeechlet.GOAL_PERIOD_KEY)) {
             return FinancialPlanningSpeechlet.GOAL_PERIOD_KEY;
         }
 
         return "";
     }
 
-    /**
-     * If it contains a certain key it means the question has already been answered, if not we still need to store
-     * the answer to that queston
-     */
-    private static boolean sessionContainsKey(Session session, String goalAmountKey) {
-        return session.getAttributes().containsKey(goalAmountKey);
-    }
+
 }

@@ -5,6 +5,7 @@ import com.amazon.speech.speechlet.Session;
 import java.io.Serializable;
 
 import static com.ortecfinance.financialplanning.FinancialPlanningIntents.*;
+import static com.ortecfinance.financialplanning.SessionManagementUtil.haveAllBeenStoredInSession;
 
 /**
  * This determines if all questions have been answered, if so we can end the session. If not all questions have been
@@ -42,8 +43,11 @@ public class EndSessionFactory implements Serializable {
     }
 
     private static boolean allAnswersAreStoredInSession(Session session) {
-        return session.getAttributes().containsKey(FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY) &&
-               session.getAttributes().containsKey(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY) &&
-               session.getAttributes().containsKey(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY);
+        return haveAllBeenStoredInSession(
+                session,
+                FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY,
+                FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY,
+                FinancialPlanningSpeechlet.GOAL_PERIOD_KEY
+        );
     }
 }
