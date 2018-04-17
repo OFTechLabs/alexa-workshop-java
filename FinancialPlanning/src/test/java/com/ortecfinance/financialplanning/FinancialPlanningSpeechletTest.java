@@ -28,14 +28,6 @@ public class FinancialPlanningSpeechletTest {
     @Before
     public void setUp() {
         slots = new HashMap<>();
-
-        /* Hint: if we store any new answers in the session, we will have to update the slots below to include it */
-        slots.put(GOAL_AMOUNT_KEY, Slot.builder().withName(GOAL_AMOUNT_KEY).withValue("1000.0").build());
-        slots.put(GOAL_PERIOD_KEY, Slot.builder().withName(GOAL_PERIOD_KEY).withValue("24.0").build());
-        slots.put(MONTHLY_CONTRIBUTION_KEY,
-                  Slot.builder().withName(MONTHLY_CONTRIBUTION_KEY).withValue("100.0").build()
-        );
-
         session = Session.builder().withSessionId("s444").build();
         financialPlanningSpeechlet = new FinancialPlanningSpeechlet();
     }
@@ -61,6 +53,13 @@ public class FinancialPlanningSpeechletTest {
     */
     @Test
     public void shouldBeAbleToHaveRegularFinancialPlanningConversation() {
+        /* Hint: if we store any new answers in the session, we will have to update the slots below to include it */
+        slots.put(GOAL_AMOUNT_KEY, Slot.builder().withName(GOAL_AMOUNT_KEY).withValue("1000.0").build());
+        slots.put(GOAL_PERIOD_KEY, Slot.builder().withName(GOAL_PERIOD_KEY).withValue("24.0").build());
+        slots.put(MONTHLY_CONTRIBUTION_KEY,
+                Slot.builder().withName(MONTHLY_CONTRIBUTION_KEY).withValue("100.0").build()
+        );
+
         handleIntentRequestCorrectly(FinancialPlanningIntents.FINANCIAL_PLANNING_INTENT,
                                      FinancialPlanningSpeechlet.GOAL_AMOUNT_QUESTION,
                                      false
@@ -77,7 +76,7 @@ public class FinancialPlanningSpeechletTest {
                                                         FinancialPlanningSpeechlet.GOAL_PERIOD_QUESTION,
                                                         false,
                                                         MONTHLY_CONTRIBUTION_KEY,
-                                                        1000.0
+                                                        100.0
         );
 
         /* Hint: the session ended true and feasibility score should ALWAYS be the last response */
@@ -85,7 +84,7 @@ public class FinancialPlanningSpeechletTest {
                                                         "The feasibility of your goal is High",
                                                         true,
                                                         GOAL_PERIOD_KEY,
-                                                        1000.0
+                                                        24.0
         );
     }
 
