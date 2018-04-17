@@ -78,7 +78,7 @@ We have already added the intent to the JSON but the intent below it is not yet 
 
 ```
 {
-  "name": "SetInitialSavings",
+  "name": "SetInitialSavingsIntent",
   "slots": [
     {
       "name": "InitialSavings",
@@ -147,9 +147,21 @@ Since you have a basic working solution now, here are several ideas on how to im
 ### Extra: Better UX through dynamic numbers
 Enable Alexa to understand it if you only provide a number for each question instead of full utterances. See the ignored test in `FinancialPlanningSpeechletTest` for an example conversation your skill would have to handle. Once this is done users can simply answer in only numbers, instead of constantly uttering the full phrases.
 
+Example conversation:
+
+```
+Alexa: What is the amount you need to achieve your financial goal?
+User: 20 000
+Alexa: What will your monthly contribution be? 
+User: 200
+Alexa: How many months are left until the goal is achieved?
+User: 68
+```
 _Note: in this approach all numbers uttered by the user map to the `SET_DYNAMIC_NUMBER_INTENT`, you will have to figure out a way to decide what question the user answered, it could be any of the four questions._
 
 _Hint: take a look at the `DynamicNumberKeyFactory`, it includes a crucial part of the puzzle._
+
+_Starting point: in the first assignment the `SetInitialSavingsIntent` was added and handled, in this assignment you will have to start handling the `SetDynamicNumberIntent`. Start by adding the `SetDynamicNumberIntent` in all the different places you added the 'SetInitialSavingsIntent'._
 
 ### Extra: Better feasibility calculation
 * You can have a conversation in which she asks for input:
@@ -172,6 +184,8 @@ Instead of stopping after the calculation, add the option to fix a low feasibili
 * Increase the time to target (a longer period should yield a higher feasibility) 
 
 _Note: you will need to add your own intents here, update the `intents.json` and the `Java` code to handle the extra intents. We can deploy the `intents.json` and `.jar` file for you once you are ready._
+
+_Starting point: in the first assignment the `SetInitialSavingsIntent` was added and handled, in this extra assignment you will essentially have to repeat the process with the intents listed above._
 
 ### Extra: Your own idea
 
