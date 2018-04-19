@@ -164,16 +164,12 @@ _Hint: take a look at the `DynamicNumberKeyFactory`, it includes a crucial part 
 _Starting point: in the first assignment the `SetInitialSavingsIntent` was added and handled, in this assignment you will have to start handling the `SetDynamicNumberIntent`. Start by adding the `SetDynamicNumberIntent` in all the different places you added the 'SetInitialSavingsIntent'._
 
 ### Extra: Better feasibility calculation
-* You can have a conversation in which she asks for input:
-    * Target amount
-    * Current amount
-    * Monthly deposit
-    * Time to target
-* Alexa calculates an basic outcome (e.g. high / low feasibility)
 
-Add a sensible calculation that provides a percentage as feasibility. This should incorporate the principle that a longer time period should yield a higher return and increase the feasibility to reach the desired goal.
+Alexa can only give two verdicts: High and Low. The answer is based on whether the expected end result (based on a 2.75% average return) is higher or lower than the target.
 
-_Note: Update the `FeasibilityCalculator` class with a better approach._
+Extend the range of possible answers to four by also comparing with 1.5% and a 3.75% scenario.
+
+_Note: Update the `FeasibilityCalculator` class with extra logic. You also need to update the unit tests in the `FeasibilityCalculatorTest` class._
 
 ### Extra: Advanced financial planning conversation
 
