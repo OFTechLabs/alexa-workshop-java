@@ -24,7 +24,7 @@ public class ResponseFactory implements Serializable {
         plainTextResponse.setText(text);
 
         SpeechletResponse speechletResponse = new SpeechletResponse();
-        speechletResponse.setShouldEndSession(endSession);
+        speechletResponse.setNullableShouldEndSession(endSession);
         speechletResponse.setOutputSpeech(plainTextResponse);
 
         return speechletResponse;
