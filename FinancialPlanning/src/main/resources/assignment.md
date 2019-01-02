@@ -188,3 +188,47 @@ _Starting point: in the first assignment the `SetInitialSavingsIntent` was added
 Feel free to improve on the current skill with your own idea's, the goal is to create a skill that helps people achieve their financial goals, in this extra you get total freedom to achieve that goal.
 
 _Note: you will need to add your own intents here, update the `intents.json` and the `Java` code to handle the extra intents. We can deploy the `intents.json` and `.jar` file for you once you are ready._ 
+
+#### Example extra intent:
+
+Below is an example of an added Intent called `YourExtraIntent` in the `intents.json`:
+
+``` 
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "financial planning",
+      "intents": [
+        {
+          "name": "FinancialPlanningIntent",
+          "slots": [],
+          "samples": [
+            "help me achieve my financial goals",
+            "help achieve goals",
+            "financial goals"
+          ]
+        },
+        ...
+        {
+          "name": "YourExtraIntent",
+          "slots": [],
+          "samples": [
+            "Here is my extra intent",
+            "Use my extra intent",
+            "Please perform my extra intent"
+          ]          
+        }
+      ],
+      "types": []
+    }
+  }
+}
+```
+
+If you want your skill to handle extra phrases, any phrases, you will also need to modify the `intents.json` with your extra intent.
+
+The file can be found here:
+
+```
+./FinancialPlaning/src/main/resources/speechassets/intents.json
+```
