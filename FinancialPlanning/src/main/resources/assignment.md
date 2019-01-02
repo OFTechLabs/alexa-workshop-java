@@ -55,7 +55,7 @@ The very basic calculation / simulation is done in the `FeasibilityCalculator`, 
 
 A basic financial planner has been implemented and is running on your Echo. It performs the following actions:
 
-- Introduction to the app when you say "Alexa start _ECHO_NAME_ON_STICKER_"
+- Introduction to the app when you say "Alexa start financial planning _ECHO_NAME_ON_STICKER_"
 - Alexa then asks you for your target amount
 - Answer an amount (see `FinancialPlanning/src/main/resources/intents.json` for sample phrases)
 - Alexa then asks you for your monthly deposit
@@ -136,9 +136,9 @@ mvn assembly:assembly -DdescriptorId=jar-with-dependencies package
 
 #### Deploy & Test
 
-Now it is time to upload your code and see if it works!
-Contact a member of the team to deploy the solution.   
+Now it is time to upload your code and see if it works! This can be done through the IDE, go to Tools -> Update AWS Lambda | Java -> select _ECHO_NAME_ON_STICKER_ and click update.
 
+After each modification you can re-update the skill using the same method.
 
 ## Extra additions
 
@@ -232,3 +232,5 @@ The file can be found here:
 ```
 ./FinancialPlaning/src/main/resources/speechassets/intents.json
 ```
+
+After the update we will have to upload it to AWS for you, please let us know if you want to update it.
