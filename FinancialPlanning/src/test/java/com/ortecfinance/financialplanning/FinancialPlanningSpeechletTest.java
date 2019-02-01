@@ -109,7 +109,7 @@ public class FinancialPlanningSpeechletTest {
                                                         FinancialPlanningSpeechlet.GOAL_PERIOD_QUESTION,
                                                         false,
                                                         MONTHLY_CONTRIBUTION_KEY,
-                                                        1000.0
+                                                        100.0
         );
 
         slots.put(DYNAMIC_NUMBER_KEY, Slot.builder().withName(DYNAMIC_NUMBER_KEY).withValue("24.0").build());
