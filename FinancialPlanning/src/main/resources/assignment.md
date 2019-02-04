@@ -28,14 +28,6 @@ FinancialPlanning/src/main/test/java/com/ortecfinance/financialplanning/3
 
 _Hint: certain tests are ignored, they can safely be ignored for the first assignment but for the extra assignments they may prove useful. You can run them by removing the `@Ignore` annotation._
 
-### Deploy & Test
-
-1. Run `mvn assembly:assembly -DdescriptorId=jar-with-dependencies package`
-2. Go to Tools -> Update AWS Lambda | Java -> select _ECHO_NAME_ON_STICKER_ and click update.
-3. Test on your Echo
-
-These steps have to be done for every code change in order to update your Alexa skill.
-
 ### Request flow:
 
 1. The request will enter in the `FinancialPlanningSpeechlet` in the `onIntent(..)` method
@@ -141,6 +133,14 @@ If compilation and tests are successful, run the following command:
 ```
 mvn assembly:assembly -DdescriptorId=jar-with-dependencies package
 ```
+
+#### Deploy & Test
+
+1. Run `mvn assembly:assembly -DdescriptorId=jar-with-dependencies package`
+2. Go to Tools -> Update AWS Lambda | Java -> select _ECHO_NAME_ON_STICKER_ and click update.
+3. Test on your Echo
+
+These steps have to be done for every code change in order to update your Alexa skill.
 
 ## Extra additions
 
