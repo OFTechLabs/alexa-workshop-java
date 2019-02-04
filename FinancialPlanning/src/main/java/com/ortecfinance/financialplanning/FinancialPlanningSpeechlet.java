@@ -10,9 +10,6 @@ public class FinancialPlanningSpeechlet implements Speechlet {
     public static String DYNAMIC_NUMBER_KEY = "Dynamic";
 
     public static String
-            WELCOME_MESSAGE =
-            "Welcome. What is the amount you need to achieve your financial goal?";
-    public static String
             HELP_MESSAGE =
             "I can help you achieve your financial goals, to start, tell me how much is necessary to achieve your " +
                     "goal?";
@@ -21,6 +18,7 @@ public class FinancialPlanningSpeechlet implements Speechlet {
     public static String GOAL_AMOUNT_QUESTION = "What is the amount you need to achieve your financial goal?";
     public static String MONTHLY_CONTRIBUTION_QUESTION = "What will your monthly contribution be?";
     public static String GOAL_PERIOD_QUESTION = "How many months are left until the goal is achieved?";
+    public static String WELCOME_MESSAGE = "Welcome. " + GOAL_AMOUNT_QUESTION;
 
     @Override
     public void onSessionStarted(SessionStartedRequest sessionStartedRequest, Session session) {

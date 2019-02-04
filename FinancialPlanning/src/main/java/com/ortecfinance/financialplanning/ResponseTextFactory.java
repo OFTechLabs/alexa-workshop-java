@@ -15,6 +15,7 @@ import static com.ortecfinance.financialplanning.FinancialPlanningIntents.*;
 public class ResponseTextFactory implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    public static final String UNKNOWN_INTENT = "I did not understand that. ";
 
     /**
      * @param intentName the intent the user wants to have handled here
@@ -49,8 +50,8 @@ public class ResponseTextFactory implements Serializable {
             case FINANCIAL_PLANNING_INTENT:
                 return NextQuestionFactory.get(session);
             default:
-                /* Hint: any extra intents will have to be handled else this exception below will be thrown */
-                throw new IllegalStateException("Unknown intent");
+                /* Hint: any extra intents will have to be handled else Alexa will not udnerstand */
+                return UNKNOWN_INTENT + NextQuestionFactory.get(session);
         }
     }
 }

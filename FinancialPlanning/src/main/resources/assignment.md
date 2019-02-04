@@ -28,6 +28,13 @@ FinancialPlanning/src/main/test/java/com/ortecfinance/financialplanning/3
 
 _Hint: certain tests are ignored, they can safely be ignored for the first assignment but for the extra assignments they may prove useful. You can run them by removing the `@Ignore` annotation._
 
+### Deploy
+
+1. Run `mvn assembly:assembly -DdescriptorId=jar-with-dependencies package`
+2. Go to Tools -> Update AWS Lambda | Java -> select _ECHO_NAME_ON_STICKER_ and click update.
+
+These steps have to be done for every code change in order to update your Alexa skill.
+
 ### Request flow:
 
 1. The request will enter in the `FinancialPlanningSpeechlet` in the `onIntent(..)` method
@@ -66,7 +73,7 @@ A basic financial planner has been implemented and is running on your Echo. It p
 
 You are going to expand the code to be able to ask for an initial amount, after that expansion the basic conversation of a financial planner is ready.
 
-### Adding the `SetInitialSavingsIntent`
+### The `SetInitialSavingsIntent` Intent
 
 First look at the intents.json:
 
@@ -179,7 +186,7 @@ Instead of stopping after the calculation, add the option to fix a low feasibili
 * Increase the monthly deposit
 * Increase the time to target (a longer period should yield a higher feasibility) 
 
-_Note: you will need to add your own intents here, update the `intents.json` and the `Java` code to handle the extra intents. We can deploy the `intents.json` and `.jar` file for you once you are ready._
+_Note: you will need to add your own intents here, update the `intents.json` and the `Java` code to handle the extra intents. We can update the `intents.json` file for you once you are ready._
 
 _Starting point: in the first assignment the `SetInitialSavingsIntent` was added and handled, in this extra assignment you will essentially have to repeat the process with the intents listed above._
 
@@ -187,7 +194,7 @@ _Starting point: in the first assignment the `SetInitialSavingsIntent` was added
 
 Feel free to improve on the current skill with your own idea's, the goal is to create a skill that helps people achieve their financial goals, in this extra you get total freedom to achieve that goal.
 
-_Note: you will need to add your own intents here, update the `intents.json` and the `Java` code to handle the extra intents. We can deploy the `intents.json` and `.jar` file for you once you are ready._ 
+_Note: you will need to add your own intents here, update the `intents.json` and the `Java` code to handle the extra intents. We can update the `intents.json` file for you once you are ready._ 
 
 #### Example extra intent:
 
