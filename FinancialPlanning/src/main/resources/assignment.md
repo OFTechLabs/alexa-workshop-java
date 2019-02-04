@@ -126,14 +126,6 @@ Run the tests again:
 mvn clean install
 ```
 
-#### Build the skill with updated code
-
-If compilation and tests are successful, run the following command:
-
-```
-mvn assembly:assembly -DdescriptorId=jar-with-dependencies package
-```
-
 #### Deploy & Test
 
 1. Run `mvn assembly:assembly -DdescriptorId=jar-with-dependencies package`
