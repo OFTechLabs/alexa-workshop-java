@@ -28,10 +28,11 @@ FinancialPlanning/src/main/test/java/com/ortecfinance/financialplanning/3
 
 _Hint: certain tests are ignored, they can safely be ignored for the first assignment but for the extra assignments they may prove useful. You can run them by removing the `@Ignore` annotation._
 
-### Deploy
+### Deploy & Test
 
 1. Run `mvn assembly:assembly -DdescriptorId=jar-with-dependencies package`
 2. Go to Tools -> Update AWS Lambda | Java -> select _ECHO_NAME_ON_STICKER_ and click update.
+3. Test on your Echo
 
 These steps have to be done for every code change in order to update your Alexa skill.
 
@@ -100,7 +101,7 @@ We have already added the intent to the JSON but the intent below it is not yet 
 }
 ```
 
-We have to add the code to handle this `SetInitialSavings` intent.
+We have to add code to handle this `SetInitialSavings` intent.
 
 #### Verify the current code can be build
 First verify that the code compiles and all tests are working by running: 
@@ -140,12 +141,6 @@ If compilation and tests are successful, run the following command:
 ```
 mvn assembly:assembly -DdescriptorId=jar-with-dependencies package
 ```
-
-#### Deploy & Test
-
-Now it is time to upload your code and see if it works! This can be done through the IDE, go to Tools -> Update AWS Lambda | Java -> select _ECHO_NAME_ON_STICKER_ and click update.
-
-After each modification you can re-update the skill using the same method.
 
 ## Extra additions
 
