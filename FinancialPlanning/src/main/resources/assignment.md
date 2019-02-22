@@ -2,6 +2,8 @@
 
 All the code for this assignment can be found in `FinancialPlanning/src/main/java/com/ortecfinance/financialplanning/` we will continue to build on the `Java` code in there. Background information for Amazon Alexa skills can be found here:
 
+## Project overview
+
 ```
 FinancialPlanning/src/main/resources/alexa-reference.md
 ``` 
@@ -23,7 +25,7 @@ FinancialPlanning/src/main/java/com/ortecfinance/financialplanning/
 All the unit tests are in:
 
 ```
-FinancialPlanning/src/main/test/java/com/ortecfinance/financialplanning/3
+FinancialPlanning/src/main/test/java/com/ortecfinance/financialplanning/
 ```
 
 _Hint: certain tests are ignored, they can safely be ignored for the first assignment but for the extra assignments they may prove useful. You can run them by removing the `@Ignore` annotation._
@@ -51,7 +53,31 @@ _Hint: You do not have to update the `intents.json` unless you add your own idea
 
 The very basic calculation / simulation is done in the `FeasibilityCalculator`, it is up to you to determine if you want to improve it or leave it as is.
 
-## Improve a basic financial planner 
+## Assignment
+ 
+The assignment starts here!
+
+### Update Welcome message
+
+We will start by updating the welcome message Alexa says when we start the sill:
+
+1. Go to the `FinancialPlanningSpeechlet`
+2. Update the welcome message
+
+#### Deploy & Test
+
+1. Run `mvn assembly:assembly -DdescriptorId=jar-with-dependencies package`
+    * You can skip unit tests with: `mvn assembly:assembly -DskipTests -DdescriptorId=jar-with-dependencies package` and you can then still deploy on Alexa (no guarantees it will work though).
+2. Go to Tools -> Update AWS Lambda | Java -> select _ECHO_NAME_ON_STICKER_ and click update.
+3. Test on your Echo
+
+These steps have to be done for every code change in order to update your Alexa skill.
+
+_Hint: if you update the welcome message before deploying you'll know the deploy worked!_
+
+_Caution: you can skip the unit tests if you are stuck and want to test on Alexa directly instead of with unit tests, we don't mind. But you cannot debug the code that is running on Alexa, so troubleshooting will be more difficult._
+ 
+### Improve a basic financial planner 
 
 A basic financial planner has been implemented and is running on your Echo. It performs the following actions:
 
@@ -66,7 +92,7 @@ A basic financial planner has been implemented and is running on your Echo. It p
 
 You are going to expand the code to be able to ask for an initial amount, after that expansion the basic conversation of a financial planner is ready.
 
-### The `SetInitialSavingsIntent` Intent
+#### The `SetInitialSavingsIntent` Intent
 
 First look at the intents.json:
 
@@ -113,7 +139,10 @@ Next add a question to the `FinancialPlanningSpeechlet`: "How much have you curr
 #### Update the code that handles the question and response
 
 Now update the following files: `EndSessionFactory`, `NextQuestionFactory` and `ResponseTextFactory` 
-with the newly created constants. The new functionality should be very similar to the goal amount functionality.  
+with the newly created constants. The new functionality should be very similar to the goal amount functionality.
+
+_Hint: adding it *after* the other existing intents and questions will make updating the tests easier, make sure to add it *after*
+the other intents/questions!_  
 
 #### Add unit tests that verify the updated code
 
@@ -126,19 +155,27 @@ Run the tests again:
 mvn clean install
 ```
 
-#### Deploy & Test
+##### Unit test problems
 
-1. Run `mvn assembly:assembly -DdescriptorId=jar-with-dependencies package`
-2. Go to Tools -> Update AWS Lambda | Java -> select _ECHO_NAME_ON_STICKER_ and click update.
-3. Test on your Echo
+If you run into problems while running the unit tests, verify the order of the questions did not change, because changing the order
+will make updating the unit tests much harder. If you are stuck you can also skip the unit tests and deploy immediately,
+no guarantee that it will actually work though.
 
-These steps have to be done for every code change in order to update your Alexa skill.
+_Hint: you can skip unit tests and deploy directly with the following build command:_
 
-## Extra additions
+```
+`mvn assembly:assembly -DskipTests -DdescriptorId=jar-with-dependencies package`
+```
+
+##### Deploy
+
+Deploy the code! (Follow the Deploy & Test instructions)
+
+### Extra additions
 
 Since you have a basic working solution now, here are several ideas on how to improve the current skill you have. You can do them in any order.
 
-### Extra: Better UX through dynamic numbers
+#### Extra: Better UX through dynamic numbers
 Enable Alexa to understand it if you only provide a number for each question instead of full utterances. See the ignored test in `FinancialPlanningSpeechletTest` for an example conversation your skill would have to handle. Once this is done users can simply answer in only numbers, instead of constantly uttering the full phrases.
 
 Example conversation:
@@ -157,7 +194,7 @@ _Hint: take a look at the `DynamicNumberKeyFactory`, it includes a crucial part 
 
 _Starting point: in the first assignment the `SetInitialSavingsIntent` was added and handled, in this assignment you will have to start handling the `SetDynamicNumberIntent`. Start by adding the `SetDynamicNumberIntent` in all the different places you added the 'SetInitialSavingsIntent'._
 
-### Extra: Better feasibility calculation
+#### Extra: Better feasibility calculation
 
 Alexa can only give two verdicts: High and Low. The answer is based on whether the expected end result (based on a 2.75% average return) is higher or lower than the target.
 
@@ -165,7 +202,7 @@ Extend the range of possible answers to four by also comparing with 1.5% and a 3
 
 _Note: Update the `FeasibilityCalculator` class with extra logic. You also need to update the unit tests in the `FeasibilityCalculatorTest` class._
 
-### Extra: Advanced financial planning conversation
+#### Extra: Advanced financial planning conversation
 
 Instead of stopping after the calculation, add the option to fix a low feasibility. Use three possible options to make the goal feasible:
  
@@ -177,13 +214,13 @@ _Note: you will need to add your own intents here, update the `intents.json` and
 
 _Starting point: in the first assignment the `SetInitialSavingsIntent` was added and handled, in this extra assignment you will essentially have to repeat the process with the intents listed above._
 
-### Extra: Your own idea
+#### Extra: Your own idea
 
 Feel free to improve on the current skill with your own idea's, the goal is to create a skill that helps people achieve their financial goals, in this extra you get total freedom to achieve that goal.
 
 _Note: you will need to add your own intents here, update the `intents.json` and the `Java` code to handle the extra intents. We can update the `intents.json` file for you once you are ready._ 
 
-#### Example extra intent:
+##### Example extra intent:
 
 Below is an example of an added Intent called `YourExtraIntent` in the `intents.json`:
 

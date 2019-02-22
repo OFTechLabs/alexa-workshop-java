@@ -13,6 +13,13 @@ import java.util.Map;
 import static com.ortecfinance.financialplanning.FinancialPlanningIntents.*;
 import static org.junit.Assert.assertThat;
 
+/**
+ * Test whether the questions are asked in the correct order, if the ordering changes or if another question is added
+ * we need to update the tests here to reflect that.
+ *
+ * You can figure out the order by looking at the NextQuestionFactory, by default it is:
+ * GOAL_AMOUNT_QUESTION, MONTHLY_CONTRIBUTION_QUESTION and then GOAL_PERIOD_QUESTION
+ */
 public class ResponseTextFactoryTest {
 
     private Session session;

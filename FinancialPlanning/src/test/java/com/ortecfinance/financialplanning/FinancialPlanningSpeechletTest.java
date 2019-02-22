@@ -18,6 +18,15 @@ import java.util.Map;
 import static com.ortecfinance.financialplanning.FinancialPlanningSpeechlet.*;
 import static org.junit.Assert.assertThat;
 
+/**
+ * This is the main test of the skill, it verifies whether all the different parts integrate correctly.
+ *
+ * Common problems if this fails:
+ *  - the order in which questions are asked has changed since the test was written, make sure the test matches the order
+ *  in your source code.
+ *  - a new intent has been added in the source code, but not in the test, make sure you add any new intents in the correct
+ *  order
+ */
 public class FinancialPlanningSpeechletTest {
 
     private Session session;

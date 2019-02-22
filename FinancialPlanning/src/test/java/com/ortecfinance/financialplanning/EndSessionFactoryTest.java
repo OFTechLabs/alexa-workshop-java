@@ -12,6 +12,12 @@ import static com.ortecfinance.financialplanning.AmazonIntents.*;
 import static com.ortecfinance.financialplanning.FinancialPlanningIntents.FINANCIAL_PLANNING_INTENT;
 import static org.junit.Assert.assertThat;
 
+/**
+ * We test if all questions have been answered, so if we add a question, we have to update this unit-test.
+ *
+ * Hint: if we add a question the session will have to be ended after that question has been answered as well,
+ * but not before, update the attributes with an answer to the new question to verify it is working correctly.
+ */
 public class EndSessionFactoryTest {
 
     private Session session;
@@ -23,6 +29,9 @@ public class EndSessionFactoryTest {
         session = Session.builder().withAttributes(attributes).withSessionId("s2412").build();
     }
 
+    /**
+     * Hint: If we add a question, this will need another answer to that question!
+     */
     @Test
     public void shouldEndSessionIfAllQuestionsHaveBeenAnswered() {
         attributes.put(FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY, 1000.0);
