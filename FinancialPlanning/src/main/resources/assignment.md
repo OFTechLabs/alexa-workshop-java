@@ -67,7 +67,7 @@ We will start by updating the welcome message Alexa says when we start the skill
 1. Run `mvn assembly:assembly -DdescriptorId=jar-with-dependencies package`
     * You can skip unit tests with: `mvn assembly:assembly -DskipTests -DdescriptorId=jar-with-dependencies package` and you can then still deploy on Alexa (no guarantees it will work though).
 2. Go to Tools -> Update AWS Lambda | Java -> select _ECHO_NAME_ON_STICKER_ and click update.
-3. Test on your Echo
+3. Test on your Echo by saying: "Alexa, start financial planning ECHO_NAME_ON_STICKER"
 
 These steps have to be done for every code change in order to update your Alexa skill.
 
@@ -86,7 +86,7 @@ A basic financial planner has been implemented and is running on your Echo. It p
 - Answer an amount
 - Alexa then asks you for your time to target (number of months)
 - Answer an amount 
-- Alexa provides a feasibility of High
+- Alexa provides a feasibility of High or Low (based on your answers)
 
 You are going to expand the code to be able to ask for an initial amount, after that expansion the basic conversation of a financial planner is ready.
 
