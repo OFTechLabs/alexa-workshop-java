@@ -25,7 +25,12 @@ public class FinancialPlanningSpeechletRequestStreamHandler extends SpeechletReq
                 "amzn1.ask.skill.9eea86d6-d631-405d-8adc-a3d7afbc7894",
                 "amzn1.ask.skill.740281e8-043d-4cf7-9b97-0296940faaa7",
                 "amzn1.ask.skill.d2aa94cf-b164-4876-9ec2-30e42c343189",
-                "amzn1.ask.skill.023724e4-4110-4ab8-a9d2-7910d9e4d0a9"
+                "amzn1.ask.skill.023724e4-4110-4ab8-a9d2-7910d9e4d0a9",
+                "amzn1.ask.skill.462a8d1f-3258-46c4-bbd7-cc441800072c",
+                "amzn1.ask.skill.dce1e326-647e-419b-8d06-b7891f05cce9",
+                "amzn1.ask.skill.93c09537-8776-4f66-9a6d-1f0076cb12bb",
+                "amzn1.ask.skill.eaf3856e-9bce-44b3-903a-3388fbffa3a6",
+                "amzn1.ask.skill.26dc6b7d-120b-4db6-aa57-e9b0eba477ec"
         ));
     }
 
