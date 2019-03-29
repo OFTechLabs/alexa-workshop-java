@@ -64,10 +64,10 @@ We will start by updating the welcome message Alexa says when we start the skill
 
 ## Deploy & Test
 
-1. Run `mvn assembly:assembly -DdescriptorId=jar-with-dependencies package`
-    * You can skip unit tests with: `mvn assembly:assembly -DskipTests -DdescriptorId=jar-with-dependencies package` and you can then still deploy on Alexa (no guarantees it will work though).
-2. Go to Tools -> Update AWS Lambda | Java -> select _ECHO_NAME_ON_STICKER_ and click update.
-3. Test on your Echo by saying: "Alexa, start financial planning ECHO_NAME_ON_STICKER"
+1. Select `Build deployment` in the top right and click the play button.
+    * You can skip unit tests with `Build deployment (skip tests)` and you can then still deploy on Alexa (no guarantees it will work though).
+2. Go to Tools -> Update AWS Lambda | Java -> select <Echo name on sticker> and click update.
+3. Test on your Echo by saying: "Alexa, start financial planning <Echo name on sticker>"
 
 These steps have to be done for every code change in order to update your Alexa skill.
 
@@ -79,7 +79,7 @@ _Caution: you can skip the unit tests if you are stuck and want to test on Alexa
 
 A basic financial planner has been implemented and is running on your Echo. It performs the following actions:
 
-- Introduction to the app when you say "Alexa start financial planning _ECHO_NAME_ON_STICKER_"
+- Introduction to the app when you say "Alexa start financial planning <Echo name on sticker>"
 - Alexa then asks you for your target amount
 - Answer an amount (see `FinancialPlanning/src/main/resources/intents.json` for sample phrases)
 - Alexa then asks you for your monthly deposit
@@ -120,11 +120,8 @@ We have already added the intent to the JSON but the intent below it is not yet 
 We have to add code to handle this `SetInitialSavings` intent by following the steps below.
 
 ### Verify the current code can be build
-First verify that the code compiles and all tests are working by running: 
+First verify that the code compiles and all tests are working by selecting `Run all Tests` in the top right of IntelliJ and clicking the play button next to it. 
    
-``` 
-mvn clean install
-``` 
 
 ### Adding intent
 
@@ -147,11 +144,7 @@ the other intents/questions!_
 Now expand the test in line with your new code: `EndSessionFactoryTest`, `NextQuestionFactoryTest` 
 and `ResponseTextFactoryTest`.
 
-Run the tests again:
-
-``` 
-mvn clean install
-```
+Run the tests again (by selecting `Run all Tests` in the top right of IntelliJ and clicking the play button next to it).
 
 ### Unit test problems
 
