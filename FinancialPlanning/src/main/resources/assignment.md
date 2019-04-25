@@ -139,7 +139,13 @@ with the newly created constants. The new functionality should be very similar t
 _Hint: adding it *after* the other existing intents and questions will make updating the tests easier, make sure to add it *after*
 the other intents/questions!_  
 
-### Add unit tests that verify the updated code
+### Optional: Verify the updated code by simulating the skill
+
+You can use the `FinancialPlanningTestSimulation` to verify the new intent works as expected. The `FinancialPlanningTestSimulation` will simulate a request of a certain intent and log the resulting response along with the variables stored in the session by the intent. It shows how to use the simulation for the `SET_GOAL_AMOUNT_INTENT`, but it can be modified for any other intent.
+
+It is possible to comment/uncomment requests or add your own request for test purposes.
+
+### Optional: Add unit tests that verify the updated code
 
 Now expand the test in line with your new code: `EndSessionFactoryTest`, `NextQuestionFactoryTest` 
 and `ResponseTextFactoryTest`.
