@@ -11,8 +11,7 @@ public class FinancialPlanningSpeechlet implements Speechlet {
 
     public static String
             HELP_MESSAGE =
-            "I can help you achieve your financial goals, to start, tell me how much is necessary to achieve your " +
-                    "goal?";
+            "I can help you achieve your financial goals, to start, tell me how much is necessary to achieve your goal?";
     public static String STOP_MESSAGE = "Bye!";
 
     public static String GOAL_AMOUNT_QUESTION = "What is the amount you need to achieve your financial goal?";
