@@ -19,6 +19,8 @@ public class FinancialPlanningSpeechlet implements Speechlet {
     public static String GOAL_PERIOD_QUESTION = "How many months are left until the goal is achieved?";
     public static String WELCOME_MESSAGE = "Welcome. " + GOAL_AMOUNT_QUESTION;
 
+    public static String DID_NOT_UNDERSTAND_TEXT = "I did not understand that. ";
+
     @Override
     public void onSessionStarted(SessionStartedRequest sessionStartedRequest, Session session) {
 

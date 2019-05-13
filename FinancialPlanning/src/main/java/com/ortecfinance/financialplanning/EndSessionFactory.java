@@ -31,7 +31,8 @@ public class EndSessionFactory implements Serializable {
             case SET_MONTHLY_CONTRIBUTION_INTENT:
             case SET_GOAL_PERIOD_INTENT:
             case SET_DYNAMIC_NUMBER_INTENT:
-                return allAnswersAreStoredInSession(session);
+                // Is there is no question to ask anymore, the session should end. Otherwise, it should continue.
+                return NextQuestionFactory.get(session).isEmpty();
             case AmazonIntents.HELP_INTENT:
                 return false;
             case AmazonIntents.CANCEL_INTENT:
@@ -40,14 +41,5 @@ public class EndSessionFactory implements Serializable {
             default:
                 throw new IllegalStateException("Unknown intent");
         }
-    }
-
-    private static boolean allAnswersAreStoredInSession(Session session) {
-        return haveAllBeenStoredInSession(
-                session,
-                FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY,
-                FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY,
-                FinancialPlanningSpeechlet.GOAL_PERIOD_KEY
-        );
     }
 }

@@ -55,25 +55,25 @@ public class NextQuestionFactoryTest {
 
     // Hint: if you add a question it needs to be added here!
     @Test
-    public void shouldGiveFeasibilityIfAllQuestionsHaveBeenAnswered() {
+    public void shouldNotGiveQuestionIfAllQuestionsHaveBeenAnswered() {
         attributes.put(FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY, 1000.0);
         attributes.put(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY, 1000.0);
         attributes.put(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY, 1000.0);
         String question = NextQuestionFactory.get(session);
 
-        assertThat(question, Is.is("The feasibility of your goal is High"));
+        assertThat(question, Is.is(""));
     }
 
     // Hint: if you add a question it needs to be added here!
     @Ignore
     @Test
-    public void shouldGiveFeasibilityIfAllQuestionsHaveBeenAnsweredWithInts() {
+    public void shouldNotGiveQuestionIfAllQuestionsHaveBeenAnsweredWithInts() {
         attributes.put(FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY, 1000);
         attributes.put(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY, 1000);
         attributes.put(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY, 1000);
         String question = NextQuestionFactory.get(session);
 
-        assertThat(question, Is.is("The feasibility of your goal is High"));
+        assertThat(question, Is.is(""));
     }
 
 }
