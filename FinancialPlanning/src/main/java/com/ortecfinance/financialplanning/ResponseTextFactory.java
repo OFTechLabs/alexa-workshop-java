@@ -28,41 +28,48 @@ public class ResponseTextFactory implements Serializable {
 
         // If the intent involves setting a variable, the corresponding slot will be filled here
         switch (intentName) {
+            // Functional cases
+            case FINANCIAL_PLANNING_INTENT:
+                return determineResponse(session);
             case SET_GOAL_AMOUNT_INTENT:
                 fillSlot(FinancialPlanningSpeechlet.GOAL_AMOUNT_KEY, session, variables);
-                break;
+                return determineResponse(session);
             case SET_MONTHLY_CONTRIBUTION_INTENT:
                 fillSlot(FinancialPlanningSpeechlet.MONTHLY_CONTRIBUTION_KEY, session, variables);
-                break;
+                return determineResponse(session);
             case SET_GOAL_PERIOD_INTENT:
                 fillSlot(FinancialPlanningSpeechlet.GOAL_PERIOD_KEY, session, variables);
-                break;
-        }
+                return determineResponse(session);
 
-        // For all intents a response is returned.
-        switch (intentName) {
+            // Amazon default intents
             case AmazonIntents.CANCEL_INTENT:
             case AmazonIntents.STOP_INTENT:
                 return FinancialPlanningSpeechlet.STOP_MESSAGE;
             case AmazonIntents.HELP_INTENT:
                 return FinancialPlanningSpeechlet.HELP_MESSAGE;
-            case FINANCIAL_PLANNING_INTENT:
-            case SET_GOAL_AMOUNT_INTENT:
-            case SET_MONTHLY_CONTRIBUTION_INTENT:
-            case SET_GOAL_PERIOD_INTENT:
-                // First determine the next question, based on which slots are still unfilled.
-                String response = NextQuestionFactory.get(session);
-                // Is there is no next question, all slots have been filled and instead a final answer will be
-                // constructed and compiled.
-                if (response.isEmpty()) {
-                    response = FinalAnswerFactory.get(session);
-                }
-                return response;
+
+            // Error handling
             default:
                 // If the spoken message did not match any of the known intents you will end up here.
                 // Necessarily, the same question will be asked again as no new slots have been filled.
                 return FinancialPlanningSpeechlet.DID_NOT_UNDERSTAND_TEXT + NextQuestionFactory.get(session);
         }
+    }
+
+    /**
+     * Determines a response; either the next question or the final answer
+     * @param session we pass the context in the session
+     * @return the response Alexa utters
+     */
+    private static String determineResponse(Session session) {
+        // First determine the next question, based on which slots are still unfilled.
+        String response = NextQuestionFactory.get(session);
+        // Is there is no next question, all slots have been filled and instead a final answer will be
+        // constructed and compiled.
+        if (response.isEmpty()) {
+            response = FinalAnswerFactory.get(session);
+        }
+        return response;
     }
 
     /**

@@ -56,9 +56,9 @@ public class FinalAnswerFactory implements Serializable {
             double monthlyContribution, double numberOfMonths, double initialSavings, double yearlyReturn
     ) {
         /* Monthly returns are calculated by MR = (1+AR)^(1/12)-1 */
-        double monthlyReturn = Math.pow(1+yearlyReturn  ,1/12.0) - 1;
+        double monthlyReturn = Math.pow(1 + yearlyReturn, 1 / 12.0) - 1;
 
-        if (monthlyReturn==0) {
+        if (monthlyReturn == 0) {
             return initialSavings + (monthlyContribution * numberOfMonths);
         }
         else {
