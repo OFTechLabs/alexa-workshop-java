@@ -241,37 +241,3 @@ We leave it up to your creativity how to achieve this. You can try to work out a
 # Out of the box: Implement your own ideas
 
 If you feel inspired, feel free to improve on the current skill with your own ideas. The goal is to create a skill that helps people achieve their financial goals. Use your imagination and knowledge to achieve that goal.
-
-You may want to add your own intents to achieve this. This requires updating the `intents.json` and the `Java` code to handle the extra intents. Unlike the Java code, you cannot deploy the intents.json file directly in this workshop. Please notify us, we can update the `intents.json` file for you once you are ready. 
-
-The file can be found here:
-
-```
-./FinancialPlaning/src/main/resources/speechassets/intents.json
-```
-
-Below is an example of an added Intent called `YourExtraIntent` in the `intents.json`:
-
-``` 
-{
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "financial planning",
-      "intents": [
-        ...
-        {
-          "name": "YourExtraIntent",
-          "slots": [],
-          "samples": [
-            "Here is my extra intent",
-            "Use my extra intent",
-            "Please perform my extra intent"
-          ]          
-        }
-      ],
-      "types": []
-    }
-  }
-}
-```
-
