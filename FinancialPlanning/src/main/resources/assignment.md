@@ -136,7 +136,7 @@ You do not have to change `intents.json` but you have to add Java code to handle
 
 You can use the `FinancialPlanningTestSimulation` to verify the new intent works as expected. The `FinancialPlanningTestSimulation` will simulate a request of a certain intent and log the resulting response along with the variables stored in the session by the intent. It shows how to use the simulation for the `SET_GOAL_AMOUNT_INTENT`, but it can be modified for any other intent.
 
-It is possible to comment/uncomment requests or add your own request for test purposes.
+It is possible to comment/uncomment requests or add your own request for test purposes. You can use the `createSetInitialSavingsIntent()` to simulate the new `SetInitialSavingsIntent`, if the output values are correct you can confidently deploy it.
 
 ### Unit tests
 
@@ -175,6 +175,7 @@ Instead of disclosing all necessary implementation steps, we invite you to find 
 * In this approach all user responses map to the `SET_DYNAMIC_NUMBER_INTENT`, so every time the same intent is passed through in the code. You will have to figure out a way to decide what question the user answered, as it could be any of the four questions.
 * Take a look at the `DynamicNumberKeyFactory`, it includes a crucial part of the puzzle.
 * In the assignment A1 the `SetInitialSavingsIntent` was added and handled, in this assignment you will have to start handling the `SetDynamicNumberIntent`. You can start by adding the `SetDynamicNumberIntent` in all places you added the 'SetInitialSavingsIntent'.
+* You can use the `createDynamicNumberIntent()` function in the `FinancialPlanningTestSimulation` class to simulate the dynamic number intent. Use the output to determine if the dynamic number is working as intended. 
 
 # Path B: Improve the analysis
 

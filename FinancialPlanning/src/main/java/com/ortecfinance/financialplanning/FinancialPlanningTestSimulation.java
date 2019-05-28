@@ -16,11 +16,22 @@ public class FinancialPlanningTestSimulation {
 
     private static final FinancialPlanningSpeechlet FINANCIAL_PLANNING_SPEECHLET = new FinancialPlanningSpeechlet();
 
+    /**
+     * Uncomment the request you want to simulate, you can also debug run the function if you are comfortable
+     * with the debugger.
+     */
     public static void main(String[] args) {
 
+        /* these are the existing intents */
         IntentRequest request = createSetGoalAmountIntent();
         //IntentRequest request = createSetMonthlyContributionIntent();
         //IntentRequest request = createSetGoalPeriodIntent();
+
+        /* this is the new intent you have to handle in assignment A1*/
+        //IntentRequest request = createSetInitialSavingsIntent();
+
+        /* this the new intent you have to handle in assignment A2 */
+        //IntentRequest request = createDynamicNumberIntent();
 
         Session session = Session.builder().withSessionId("s444").build();
         SpeechletResponse speechletResponse = FINANCIAL_PLANNING_SPEECHLET.onIntent(
@@ -50,7 +61,6 @@ public class FinancialPlanningTestSimulation {
         );
     }
 
-
     public static IntentRequest createSetMonthlyContributionIntent() {
         Map<String, Slot> requestArguments = new HashMap<>();
         requestArguments.put(
@@ -64,7 +74,6 @@ public class FinancialPlanningTestSimulation {
         );
     }
 
-
     public static IntentRequest createSetGoalPeriodIntent() {
         Map<String, Slot> requestArguments = new HashMap<>();
         requestArguments.put(
@@ -74,6 +83,32 @@ public class FinancialPlanningTestSimulation {
 
         return createRequest(
                 SET_GOAL_PERIOD_INTENT,
+                requestArguments
+        );
+    }
+
+    public static IntentRequest createSetInitialSavingsIntent() {
+        Map<String, Slot> requestArguments = new HashMap<>();
+        requestArguments.put(
+                "InitialSavings",
+                Slot.builder().withName("InitialSavings").withValue("10.0").build()
+        );
+
+        return createRequest(
+                "SetInitialSavingsIntent",
+                requestArguments
+        );
+    }
+
+    public static IntentRequest createDynamicNumberIntent() {
+        Map<String, Slot> requestArguments = new HashMap<>();
+        requestArguments.put(
+                "Dynamic",
+                Slot.builder().withName("Dynamic").withValue("10.0").build()
+        );
+
+        return createRequest(
+                "SetDynamicNumberIntent",
                 requestArguments
         );
     }
