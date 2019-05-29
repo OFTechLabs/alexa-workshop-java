@@ -1,6 +1,6 @@
 # Project structure
 
-All the code for this assignment can be found in `FinancialPlanning/src/main/java/com/ortecfinance/financialplanning/` we will continue to build on the `Java` code in there. Background information for Amazon Alexa skills can be found here:
+All the code for this assignment can be found in `FinancialPlanning/src/main/java/com/ortecfinance/financialplanning/`. We will continue to build on the `Java` code in there. Background information for Amazon Alexa skills can be found here:
 
 ```
 FinancialPlanning/src/main/resources/alexa-reference.md
@@ -26,7 +26,7 @@ As long as the Financial Planner is active (i.e. has been launched and has not s
 
 _Hint: You do not have to update the `intents.json` for the various assignments._
 
-Then, the following basic happens (see also diagram below):
+Then, the following happens (see also diagram below):
 1. In the `FinancialPlanningSpeechlet` the `onIntent(..)` method is called with the Intent as a parameter.
 2. This method calls `ResponseTextFactory.create(..)` to build and retrieve the response that must be spoken.
 3. Then the method calls `EndSessionFactory.shouldEndSession(..)` to determine whether the session must be ended after the next response. 
@@ -76,7 +76,7 @@ This focuses on improving the interaction between user and Alexa by working on t
 
 **Path B: Improve the analysis (leans to Econometrics / Mathematics)**
 This focuses on improving the final answer that Alexa returns. This path is more focused on financial analysis and making the response of Alexa sophisticated and useful. You will mainly work on 1 file and you need to adjust unit tests less often, compared to path A.
-* Assignment B1: At the start Alexa can just say whether feasility is High or Low. Expand the verdict such that it has more categories ★★
+* Assignment B1: At the start Alexa can just say whether feasibility is High or Low. Expand the verdict such that it has more categories ★★
 * Assignment B2: Expand the answer to include an estimation on what you can achieve ★★
 * Assignment B3: Expand the answer such that Alexa also gives advice to fix a low feasibility ★★★★
 
