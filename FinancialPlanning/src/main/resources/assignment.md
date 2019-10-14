@@ -39,7 +39,7 @@ Within the `ResponseTextFactory.create(..)` method (step 2 above):
 
 The `FinancialPlanningIntents` class also includes the texts of all responses (as constants) and the keys of the intents that we have to handle.
 
-![Flow](Flow.png "Main flow")
+![Flow](flow.png "Main flow")
 
 # Warm-up Assignment: Update welcome message ★
 
